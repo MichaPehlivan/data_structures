@@ -53,6 +53,25 @@ node *delete_node(node **head, int index) {
     return *head;
 }
 
+node *delete_data(node **head, int data) {
+    if((*head)->data == data) {
+        node *tmp = *head;
+        *head = (*head)->next;
+        free(tmp);
+        return *head;
+    }
+
+    node *tmp = *head;
+    node *prev = *head;
+    while(tmp->data != data){
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    prev->next = tmp->next;
+    free(tmp);
+    return *head;
+}
+
 //TODO
 node *edit_data(node *head, int index, int new_data);
 

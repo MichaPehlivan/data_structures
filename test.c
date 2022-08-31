@@ -10,18 +10,9 @@ int main() {
 
     print_list(head);
 
-    delete_node(&head, 0);
+    delete_node(&head, 15);
+    delete_data(&head, 7);
     print_list(head);
-    delete_node(&head, 28);
-    print_list(head); 
-    delete_node(&head, 4);
-    print_list(head); 
-    delete_node(&head, 20);
-    print_list(head); 
-    delete_node(&head, 7);
-    print_list(head); 
-    delete_node(&head, 14);
-    print_list(head); 
     
     return 0;
 }

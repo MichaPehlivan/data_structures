@@ -11,7 +11,12 @@ int main() {
     print_list(head);
 
     delete_node(&head, 15);
-    delete_data(&head, 7);
+    edit_data(head, 5, 69);
+    printf("deleted 15 and changed 5 to 69: ");
+    print_list(head);
+
+    reverse(&head);
+    printf("reversed list: ");
     print_list(head);
     
     return 0;

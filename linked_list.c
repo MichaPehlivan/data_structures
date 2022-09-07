@@ -72,9 +72,36 @@ node *delete_data(node **head, int data) {
     return *head;
 }
 
-//TODO
-node *edit_data(node *head, int index, int new_data);
+node *edit_data(node *head, int index, int new_data) {
+    node *current = head;
+    for(int i = 0; i < index; i++){
+        current = current->next;
+    }
+    current->data = new_data;
+    return head;
+}
 
-node *reverse(node *head);
+node *reverse(node **head) {
+    node *prev = NULL;
+    node *current = *head;
+    node *next = NULL;
+    while(current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
 
-void destroy_list(node *head);
+    *head = prev;
+    return *head;
+}
+
+void destroy_list(node *head) {
+    node *current = head;
+    while (current != NULL)
+    {
+        node *tmp = current;
+        current = current->next;
+        free(tmp);
+    }
+}

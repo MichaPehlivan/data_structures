@@ -37,9 +37,86 @@ d_node *add_d_node(d_node *head, int data) {
     return head;
 }
 
-//TODO
-d_node *delete_d_node(d_node **head, int index);
-d_node *delete_data_d(d_node **head, int data);
-d_node *edit_data_d(d_node *head, int index, int new_data);
-d_node *reverse_d(d_node **head);
-void destroy_d_list(d_node *head);
+d_node *delete_d_node(d_node **head, int index) {
+    if(index == 0) {
+        d_node *tmp = *head;
+        *head = tmp->next;
+        (*head)->prev = NULL;
+        free(tmp);
+        return *head;
+    }
+
+    d_node *tmp = *head;
+    for(int i = 0; i < index; i++) {
+        tmp = tmp->next;
+    }
+
+    if(tmp->next == NULL) {
+        tmp->prev->next = NULL;
+        free(tmp);
+        return *head;
+    }
+
+    tmp->prev->next = tmp->next;
+    tmp->next->prev = tmp->prev;
+    free(tmp);
+    return *head;
+}
+
+d_node *delete_data_d(d_node **head, int data) {
+    if((*head)->data == data) {
+        d_node *tmp = *head;
+        *head = tmp->next;
+        (*head)->prev = NULL;
+        free(tmp);
+        return *head;
+    }
+
+    d_node *tmp = *head;
+    while(tmp->data != data || tmp == NULL) {
+        tmp = tmp->next;
+    }
+
+    if(tmp->next == NULL) {
+        tmp->prev->next = NULL;
+        free(tmp);
+        return *head;
+    }
+
+    tmp->prev->next = tmp->next;
+    tmp->next->prev = tmp->prev;
+    free(tmp);
+    return *head;
+}
+
+d_node *edit_data_d(d_node *head, int index, int new_data) {
+    d_node *tmp = head;
+    for(int i = 0; i < index; i++) {
+        tmp = tmp->next;
+    }
+    tmp->data = new_data;
+    return head;
+}
+
+d_node *reverse_d(d_node **head) {
+    d_node *tmp = *head;
+    while(tmp->next != NULL) {
+        d_node *next = tmp->next;
+        tmp->next = tmp->prev;
+        tmp->prev = next;
+        tmp = next;
+    }
+    tmp->next = tmp->prev;
+    tmp->prev = NULL;
+    *head = tmp;
+    return *head;
+}
+
+void destroy_d_list(d_node *head) {
+    d_node *current = head;
+    while(current != NULL) {
+        d_node *tmp = current;
+        current = current->next;
+        free(tmp);
+    }
+}

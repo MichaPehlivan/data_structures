@@ -37,6 +37,16 @@ d_node *add_d_node(d_node *head, int data) {
     return head;
 }
 
+int indexof_d(d_node *head, int data) {
+    d_node *tmp = head;
+    int index = 0;
+    while(tmp->data != data || tmp == NULL) {
+        tmp = tmp->next;
+        index++;
+    }
+    return index;
+}
+
 d_node *delete_d_node(d_node **head, int index) {
     if(index == 0) {
         d_node *tmp = *head;

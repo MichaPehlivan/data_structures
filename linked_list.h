@@ -6,6 +6,7 @@ typedef struct node node;
 void print_list(node *head);
 node *new_node(int data);
 node *add_node(node *head, int data);
+int indexof(node *head, int data);
 node *delete_node(node **head, int index);
 node *delete_data(node **head, int data);
 node *edit_data(node *head, int index, int new_data);

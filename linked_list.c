@@ -34,6 +34,16 @@ node *add_node(node *head, int data) {
     return head;
 }
 
+int indexof(node *head, int data) {
+    node *tmp = head;
+    int index = 0;
+    while(tmp->data != data || tmp == NULL) {
+        tmp = tmp->next;
+        index++;
+    }
+    return index;
+}
+
 node *delete_node(node **head, int index) {
     if(index == 0) {
         node *tmp = *head;

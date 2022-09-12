@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "linked_list.h"
 #include "doubly_linked_list.h"
+#include "arraylist.h"
 
 int main() {
     //singly linked list

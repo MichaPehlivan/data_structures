@@ -44,9 +44,43 @@ arraylist *add_item_al(arraylist *list, int data) {
 }
 
 //TODO
-int indexof_al(arraylist *list, int data);
-arraylist *delete_item_al(arraylist *list, int index);
-arraylist *delete_data_al(arraylist *list, int data);
+int indexof_al(arraylist *list, int data) {
+    for(int i = 0; i < list->count; i++) {
+        if(list->array[i] == data) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+arraylist *delete_item_al(arraylist *list, int index) {
+    int *ptr = list->array;
+    for(int i = 0; i <= index; i++) {
+        ptr++;
+    }
+
+    for(int i = index + 1; i < list->count; i++) {
+        list->array[i - 1] = list->array[i];
+    }
+    list->count--;
+    return list;
+}
+
+arraylist *delete_data_al(arraylist *list, int data) {
+    int *ptr = list->array;
+    int index = 0;
+    while(*ptr != data && index < list->count) {
+        ptr++;
+        index++;
+    }
+    for(int i = index + 1; i < list->count; i++) {
+        list->array[i-1] = list->array[i];
+    }
+    list->count--;
+    return list;
+}
+
+//TODO
 arraylist *edit_data_al(arraylist *list, int index, int new_data);
 arraylist *reverse_al(arraylist *list);
 void destroy_arraylist(arraylist *list);

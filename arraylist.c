@@ -25,11 +25,11 @@ void print_arraylist(arraylist *list) {
 
     int last_index = 0;
     for(int i = 0; i < (list->count - 1); i++) {
-        printf("%d, ", list->array[i]);
+        printf("%d, ", *(list->array + i));
         last_index = i;
     }  
 
-    printf("%d]\n", list->array[last_index + 1]);
+    printf("%d]\n", *(list->array + last_index + 1));
 }
 
 arraylist *add_item_al(arraylist *list, int data) {
@@ -38,15 +38,14 @@ arraylist *add_item_al(arraylist *list, int data) {
         list->array = realloc(list->array, list->size * sizeof(int));
     }
 
-    list->array[list->count] = data;
+    *(list->array + list->count) = data;
     list->count++;
     return list;
 }
 
-//TODO
 int indexof_al(arraylist *list, int data) {
     for(int i = 0; i < list->count; i++) {
-        if(list->array[i] == data) {
+        if(*(list->array + i) == data) {
             return i;
         }
     }
@@ -55,7 +54,7 @@ int indexof_al(arraylist *list, int data) {
 
 arraylist *delete_item_al(arraylist *list, int index) {
     for(int i = index + 1; i < list->count; i++) {
-        list->array[i - 1] = list->array[i];
+        *(list->array + (i-1)) = *(list->array + i);
     }
     list->count--;
     return list;
@@ -69,7 +68,7 @@ arraylist *delete_data_al(arraylist *list, int data) {
         index++;
     }
     for(int i = index + 1; i < list->count; i++) {
-        list->array[i-1] = list->array[i];
+        *(list->array + (i-1)) = *(list->array + i);
     }
     list->count--;
     return list;
@@ -92,7 +91,6 @@ arraylist *reverse_al(arraylist *list) {
         ptr--;
     }
     *list = *new;
-    free(new);
     return list;
 }
 

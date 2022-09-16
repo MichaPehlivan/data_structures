@@ -29,6 +29,14 @@ int main() {
     printf("doubly linked list: ");
     print_double_list(d_head);
     destroy_d_list(d_head);
-    
+
+    //arraylist
+    arraylist *arraylist = new_arraylist();
+    for(int i = 0; i < 30; i++) {
+        add_item_al(arraylist, i);
+    }
+    printf("arraylist: ");
+    print_arraylist(arraylist);
+
     return 0;
 }

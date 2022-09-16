@@ -16,7 +16,7 @@ void print_double_list(d_node *head) {
         printf("%d, ", tmp->data);
         tmp = tmp->next;
     }
-    printf("%d]", tmp->data);
+    printf("%d]\n", tmp->data);
 }
 
 d_node *new_d_node(int data) {

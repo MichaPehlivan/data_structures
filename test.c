@@ -35,12 +35,13 @@ int main() {
     for(int i = 0; i < 30; i++) {
         add_item_al(arraylist, i);
     }
-    delete_item_al(arraylist, 0);
-    delete_item_al(arraylist, 28);
-    delete_item_al(arraylist, 14);
+    delete_item_al(arraylist, 15);
     delete_data_al(arraylist, 20);
+    edit_data_al(arraylist, 5, 69);
+    reverse_al(arraylist);
     printf("arraylist: ");
     print_arraylist(arraylist);
+    destroy_arraylist(arraylist);
 
     return 0;
 }

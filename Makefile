@@ -1,9 +1,10 @@
 CC=gcc.exe
 CFLAGS=-Wall -g 
+FILES= test.c linked_list.c doubly_linked_list.c arraylist.c hashmap.c
 
 all: test
 
-test: test.c linked_list.c doubly_linked_list.c arraylist.c
+test: $(FILES) 
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:

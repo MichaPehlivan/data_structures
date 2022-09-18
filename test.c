@@ -2,6 +2,7 @@
 #include "linked_list.h"
 #include "doubly_linked_list.h"
 #include "arraylist.h"
+#include "hashmap.h"
 
 int main() {
     //singly linked list
@@ -42,6 +43,13 @@ int main() {
     printf("arraylist: ");
     print_arraylist(arraylist);
     destroy_arraylist(arraylist);
+
+    //hashmap
+    hashmap *hashmap = new_hashmap();
+    add_item_hashmap(hashmap, 69, 420);
+    add_item_hashmap(hashmap, 3, 4);
+    printf("hashmap: ");
+    print_hashmap(hashmap);
 
     return 0;
 }

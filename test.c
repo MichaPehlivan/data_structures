@@ -46,10 +46,17 @@ int main() {
 
     //hashmap
     hashmap *hashmap = new_hashmap();
-    add_item_hashmap(hashmap, 69, 420);
-    add_item_hashmap(hashmap, 3, 4);
+    add_item_hashmap(hashmap, 69, 420); 
+    add_item_hashmap(hashmap, 2, 3); 
+    add_item_hashmap(hashmap, 5, 4); 
+    add_item_hashmap(hashmap, 200, 323); 
+    add_item_hashmap(hashmap, 555, 12); 
+    add_item_hashmap(hashmap, 10, 15);
+    delete_item_hashmap(hashmap, 69);
+    delete_item_hashmap(hashmap, 200);
     printf("hashmap: ");
     print_hashmap(hashmap);
-
+    delete_hashmap(hashmap);
+    
     return 0;
 }

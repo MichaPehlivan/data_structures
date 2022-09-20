@@ -4,7 +4,6 @@
 #include "arraylist.h"
 #include "hashmap.h"
 #include "binary_tree.h"
-#include "binary_tree.c"
 
 int main() {
     //singly linked list
@@ -61,22 +60,16 @@ int main() {
     delete_hashmap(hashmap);
     
     //binary tree
-    tree_node *n1 = new_tree(1);
-    tree_node *n2 = new_tree(2);
-    tree_node *n3 = new_tree(3);
-    tree_node *n4 = new_tree(4);
-    tree_node *n5 = new_tree(5);
-    tree_node *n6 = new_tree(6);
-    tree_node *n7 = new_tree(7);
-
-    n1->left_child = n2;
-    n1->right_child = n3;
-    n2->left_child = n4;
-    n2->right_child = n5;
-    n3->left_child = n6;
-    n3->right_child = n7;
-
-    print_tree(n1, 0);
+    tree_node *root = create_node(10);
+    add_tree_node(root, 12);
+    add_tree_node(root, 8);
+    add_tree_node(root, 5);
+    add_tree_node(root, 13);
+    add_tree_node(root, 20);
+    add_tree_node(root, 2);
+    add_tree_node(root, 14);
+    add_tree_node(root, 19);
+    print_tree(root);
 
     return 0;
 }

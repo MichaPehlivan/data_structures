@@ -21,7 +21,25 @@ tree_node *create_node(int value) {
     return new;
 }
 
-void print_tree(tree_node *root);
-tree_node *add_node(tree_node *root, int value);
-tree_node *delete_node(tree_node *root, int target);
+void print_tabs(int n) {
+    for(int i = 0; i < n; i++) {
+        printf("\t");
+    }
+}
+
+void print_tree(tree_node *root, int space) {
+    if (root == NULL) {
+        return;
+    }
+    space += 10;
+    print_tree(root->right_child, space);
+    printf("\n");
+    for (int i = 10; i < space; i++)
+        printf(" ");
+    printf("%d\n", root->data);
+    print_tree(root->left_child, space);
+}
+
+tree_node *add_tree_node(tree_node *root, int value);
+tree_node *delete_tree_node(tree_node *root, int target);
 void delete_binary_tree(tree_node *root);

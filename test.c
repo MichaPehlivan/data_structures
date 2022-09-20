@@ -3,7 +3,6 @@
 #include "doubly_linked_list.h"
 #include "arraylist.h"
 #include "hashmap.h"
-#include "binary_tree.h"
 
 int main() {
     //singly linked list
@@ -58,18 +57,6 @@ int main() {
     printf("hashmap: ");
     print_hashmap(hashmap);
     delete_hashmap(hashmap);
-    
-    //binary tree
-    tree_node *root = create_node(10);
-    add_tree_node(root, 12);
-    add_tree_node(root, 8);
-    add_tree_node(root, 5);
-    add_tree_node(root, 13);
-    add_tree_node(root, 20);
-    add_tree_node(root, 2);
-    add_tree_node(root, 14);
-    add_tree_node(root, 19);
-    print_tree(root);
 
     return 0;
 }
